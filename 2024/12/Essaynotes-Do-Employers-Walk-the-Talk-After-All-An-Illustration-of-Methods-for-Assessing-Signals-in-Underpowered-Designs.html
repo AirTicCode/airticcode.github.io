@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="社会科学关注可重复性 “可重复性危机” 低效设计下的零假设显著性检验（NHST）备受批评 解读出虚假的零假设支持 未能识别真实效应的误差（第二类错误）   两种改善NHST的方法 后验设计分析（Post hoc design analysis, PHDA）：评估NHST中生成零结果的分析是否有足够功效检测合理效应 贝叶斯分析（Bayesian analysis with default prio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Do Employers &quot;Walk the Talk&quot; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs">
+<meta property="og:url" content="https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html">
+<meta property="og:site_name" content="阿克提克">
+<meta property="og:description" content="社会科学关注可重复性 “可重复性危机” 低效设计下的零假设显著性检验（NHST）备受批评 解读出虚假的零假设支持 未能识别真实效应的误差（第二类错误）   两种改善NHST的方法 后验设计分析（Post hoc design analysis, PHDA）：评估NHST中生成零结果的分析是否有足够功效检测合理效应 贝叶斯分析（Bayesian analysis with default prio">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-12-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-17T01:21:14.837Z">
+<meta property="article:author" content="ArcTic">
+<meta property="article:tag" content="定量研究">
+<meta property="article:tag" content="方法研究">
+<meta property="article:tag" content="统计学">
+<meta property="article:tag" content="统计方法">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/photos/">Photos</a></li><!--
+     --><!--
+       --><li><a href="/Soccer/">Soccer</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2024/12/Essaynotes-Walking-the-Talk-What-Employers-Say-versus-What-They-Do.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2024/12/Booknotes-%E3%80%8A%E9%87%91%E9%92%B1%E7%9A%84%E7%A4%BE%E4%BC%9A%E6%84%8F%E4%B9%89%E3%80%8B%E7%AC%AC7%E7%AB%A0.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&text=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&is_video=false&description=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs&body=Check out this article: https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&name=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&t=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ArcTic</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-12-15T16:00:00.000Z" class="dt-published" itemprop="datePublished">2024-12-16</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/">统计方法</a> › <a class="category-link" href="/categories/%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/p%E5%80%BC/">p值</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E5%AE%9A%E9%87%8F%E7%A0%94%E7%A9%B6/" rel="tag">定量研究</a>, <a class="p-category" href="/tags/%E6%96%B9%E6%B3%95%E7%A0%94%E7%A9%B6/" rel="tag">方法研究</a>, <a class="p-category" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a>, <a class="p-category" href="/tags/%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" rel="tag">统计方法</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <ul>
+<li>社会科学关注可重复性<ul>
+<li>“可重复性危机”</li>
+<li>低效设计下的零假设显著性检验（NHST）备受批评<ul>
+<li>解读出虚假的零假设支持</li>
+<li>未能识别真实效应的误差（第二类错误）</li>
+</ul>
+</li>
+<li>两种改善NHST的方法<ul>
+<li>后验设计分析（Post hoc design analysis, PHDA）：评估NHST中生成零结果的分析是否有足够功效检测合理效应</li>
+<li>贝叶斯分析（Bayesian analysis with default priors）：更好地从小样本、罕见事件数据或其他低效设计中提取信号</li>
+<li>将Pager &amp; Quillian（2005）的研究用于说明这些方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PHDA：如何知道NHST分析产生的不显著结果是否有足够统计力来检测合理的影响？<ul>
+<li>统计功效：给定测试正确拒绝零假设的概率<ul>
+<li>大样本、预期效应较大、方差较低的研究有较高统计功效</li>
+<li>统计功效低于0.80则被认为是低效<ul>
+<li>即使效应真实存在，低样本量也可能导致未能拒绝零假设（第二类错误）</li>
+<li>测量数据的方差较大，分组严重不平衡，会进一步限制统计功效</li>
+<li>在功效不足的情况下，只有特别大的效应可能被检测到，可能导致研究者对效应大小的高估（“赢家的诅咒”）</li>
+<li>在罕见情况下拒绝零假设时，可能产生假阳性（第一类错误）或严重高估效应大小</li>
+<li>由于显著性检验主导的学术发表标准，低效研究的零结果（非显著性）更容易被“文件抽屉问题”埋没</li>
+<li>零结果（未拒绝零假设）可能被错误解读为支持零假设，实际可能只是功效不足</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>后验设计分析<ul>
+<li>低效研究推断错误可能性很高，因此有必要确定NHST的统计功效，然而：<ul>
+<li>许多研究在数据收集前未进行功效分析，导致零结果可能由设计缺陷（如功效不足）而非真实的效应缺失引起</li>
+<li>传统的后验功效计算基于已观察到的效应大小计算功效，并使研究者可能错误地将低功效等同于零假设成立</li>
+</ul>
+</li>
+<li>Gelman &amp; Carlin（2014）提供了一种创新的后验设计分析方法（PHDA）<ul>
+<li>聚焦“合理效应大小”<ul>
+<li>通过理论知识和外部证据，提出研究中可能存在的效应大小范围</li>
+<li>强调避免依赖于已观察到的效应大小</li>
+</ul>
+</li>
+<li>类型错误分析<ul>
+<li><strong>符号错误（Type S error）</strong>：估计方向错误的概率</li>
+<li><strong>幅度错误（Type M error）</strong>：高估或低估效应大小的程度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实施步骤：<ul>
+<li><ol>
+<li>确定研究设计特征，收集与功效相关的要素，如样本量、变量分布、测量方差、显著性水平</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>基于理论知识、元分析或类似研究结果，假设合理效应大小，独立于已观察数据</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>输入设计特征和合理效应大小，利用统计工具计算功效，比较计算结果与常见功效标准（如0.80），判断研究设计是否有足够功效检测假设效应</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>贝叶斯分析：如何从数据不足的数据中检测出有意义的信号<ul>
+<li>贝叶斯分析为参数模型指定先验分布，通过整合先验信息，挖掘出可能的信号，但本文主张默认先验条件（如均匀分布）下的贝叶斯分析：<ul>
+<li>对后验分布的影响较小，从而保证后验分布主要由数据驱动</li>
+<li>结果通常与 NHST 结果相似并可比，且在小样本情况下可以改善NHST推断</li>
+<li>在缺乏领域知识的情况下，无需研究者进行复杂的先验分布指定，易于使用和解释</li>
+<li>NHST的零结果毫无信息，但通常被错误地解释为支持零假设，而贝叶斯分析提供了有关数据中给定信号强度和精度的更多信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>言行不一的案例：P&amp;Q（2005）<ul>
+<li>著名的实验性审计研究（Pager，2003）发现雇主更不愿意给有犯罪记录的申请人回电，而P&amp;Q（2005）对雇主的态度与行为之间的关系重新进行了分析：<ul>
+<li>NHST 检验表明雇主的态度与行为之间没有显著关联（零假设成立）</li>
+<li>零结果被广泛引用为证据，支持社会学中“态度与行为不一致性”的观点</li>
+<li>按：实验性审计是研究者通过实验性观察测量的实际行为</li>
+</ul>
+</li>
+<li>案例选择的原因<ul>
+<li>该研究NHST的零结果被误解为态度与行为确实无关，但实际可能仅反映了设计的功效问题</li>
+<li>样本量（n&#x3D;156）足够，但是雇主回拨有犯罪记录的申请人的比例非常低（仅 11 次回拨），属于稀有事件，导致研究功效较低，这是社科研究的常见状况</li>
+<li>该研究的数据&#x2F;方法非常透明，有可能使用贝叶斯方法重现</li>
+</ul>
+</li>
+<li>数据：P&amp;Q（2005）公布的交叉表格组频率数据，并重新编码（？），评估已发表结论在测量的稳健性</li>
+</ul>
+</li>
+<li>PHDA的评估<strong>（？）</strong><ul>
+<li><ol>
+<li>假设合理效应大小</li>
+</ol>
+<ul>
+<li>识别每个编码条件下的反事实“最大可能”的情景-审计关联（F&#x2F;Fmax&#x3D;1）</li>
+<li>基于元分析中关于调查态度测量与实际行为观测之间平均相关性的已有信息</li>
+<li>将“最大可能”分布调整为两种反事实期望的回拨分布，分别对应于“中等”（F&#x2F;Fmax &#x3D; 0.38）和“强”（F&#x2F;Fmax &#x3D; 0.52）的情景–审计关联</li>
+<li><em>按：情景–审计关联表示情景中测得的态度与审计中观测到的实际行为之间的关联程度</em></li>
+</ul>
+</li>
+<li><ol start="2">
+<li>比较计算结果与常见功效标准</li>
+</ol>
+<ul>
+<li>只有反事实分布的统计功效大于0.80</li>
+<li>P&amp;Q（2005）强效应和中等效应的功效均低于0.80，表明该研究设计可能无法有效检测态度与行为的潜在关联</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>贝叶斯分析<ul>
+<li>使用R中的Bayesian First Aid包估计Vignette-audit关联的可能参数值</li>
+<li>根据研究数据和先验分布，通过贝叶斯公式计算态度与行为之间的后验分布<ul>
+<li>后验平均值显示，尽管原研究中 NHST 的结果为不显著（功效不足），贝叶斯方法仍然揭示出态度和行为之间可能存在一定程度的关联</li>
+<li>高密度区间（HDI ）并未完全包含零，暗示数据中仍可能存在信号支持态度与行为的关联</li>
+<li>零假设的后验概率较低，表明原研究中 NHST 的零结果可能是功效不足导致的假阴性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>研究意义<ul>
+<li>研究人员和编辑越来越多地鼓励发表无意义的结果以减少文件抽屉问题，提高元分析结果的准确性，并最终鼓励理论上的反驳，但本文对P&amp;Q（2005）的检验表明虚假阴性相比于虚假阳性构成了同样甚至更大的威胁，对无结果发现应该进行批判性评估和谨慎解释（如运用PHDA）</li>
+<li>默认先验条件的贝叶斯分析提供了比许多复杂的NHST对大型数据集更多的信息，并帮助推动社会学家在面对不确定性和不准确性特征的结果中更有效地推进实质性的和理论上的辩论。</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/photos/">Photos</a></li>
+        
+          <li><a href="/Soccer/">Soccer</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&text=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&is_video=false&description=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs&body=Check out this article: https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&title=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&name=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://arcticblog.cn/2024/12/Essaynotes-Do-Employers-Walk-the-Talk-After-All-An-Illustration-of-Methods-for-Assessing-Signals-in-Underpowered-Designs.html&t=Do Employers &#34;Walk the Talk&#34; After All? An Illustration of Methods for Assessing Signals in Underpowered Designs"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    ArcTic
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/photos/">Photos</a></li><!--
+     --><!--
+       --><li><a href="/Soccer/">Soccer</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
