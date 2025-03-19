@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <!-- so meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta name="description" content="@ 邱嘉平，《因果推断实用计量方法》，第12章，《断点回归》，上海财经大学出版社有限公司，2020年。 第十二章 断点回归 断点回归（Regression Discontinuity Design, RDD） 适用于某些特定事件：个体是否受到事件的影响，取决于其某个可观测特征是否大于给定的临界值。 如果事件发生的概率发生了从0到1的变化，则称为清晰断点回归（Sharp RDD）。 如果概率发生了非">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记丨断点回归">
+<meta property="og:url" content="https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html">
+<meta property="og:site_name" content="阿克提克">
+<meta property="og:description" content="@ 邱嘉平，《因果推断实用计量方法》，第12章，《断点回归》，上海财经大学出版社有限公司，2020年。 第十二章 断点回归 断点回归（Regression Discontinuity Design, RDD） 适用于某些特定事件：个体是否受到事件的影响，取决于其某个可观测特征是否大于给定的临界值。 如果事件发生的概率发生了从0到1的变化，则称为清晰断点回归（Sharp RDD）。 如果概率发生了非">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-17T08:16:57.000Z">
+<meta property="article:modified_time" content="2025-03-17T09:03:26.049Z">
+<meta property="article:author" content="ArcTic">
+<meta property="article:tag" content="因果推断">
+<meta property="article:tag" content="《因果推断实用计量方法》">
+<meta property="article:tag" content="计量">
+<meta property="article:tag" content="断点回归">
+<meta name="twitter:card" content="summary">
+  
+  
+    
+      
+        <link rel="shortcut icon" href="/images/favicon.ico">
+      
+    
+    
+      
+        <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+      
+    
+    
+      
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+      
+    
+  
+  <!-- title -->
+  <title>笔记丨断点回归</title>
+  <!-- async scripts -->
+  <!-- Google Analytics -->
+
+
+  <!-- Umami Analytics -->
+
+
+  <!-- styles -->
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!-- persian styles -->
+  
+  <!-- rss -->
+  
+  
+<!-- mathjax -->
+
+
+<!-- 新增开始：打字机动效相关 -->
+<style>
+  .typed-cursor {
+    font-size: 48px !important;
+    animation: blink 1s infinite;
+    color: #ffffff;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.16/typed.min.js" defer></script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    new Typed('.typewriter-content', {
+      strings: ['Eternity’s too vast, let’s live for now.'],
+      typeSpeed: 60,
+      startDelay: 300,
+      backSpeed: 0,
+      loop: false,
+      showCursor: true,
+      cursorChar: '▌',
+      onComplete: (self) => $('.typed-cursor').fadeOut(500)
+    });
+  });
+</script>
+<noscript>
+  <style>
+    .typewriter-content { 
+      display: inline-block !important;
+      opacity: 1 !important; 
+    }
+  </style>
+</noscript>
+<!-- 新增结束 -->
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/photos/">Photos</a></li><!--
+     --><!--
+       --><li><a href="/categories/Booknotes/">Booknotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/BookReview/">BookReview</a></li><!--
+     --><!--
+       --><li><a href="/categories/Essaynotes/">Essaynotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/JustWriting/">JustWriting</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2025/03/Essaynotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E8%A7%A3%E9%87%8A%E5%A4%A7%E4%BC%97%E6%95%99%E8%82%B2%E7%9A%84%E8%B5%B7%E6%BA%90%E4%B8%8E%E6%89%A9%E5%BC%A0.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&text=笔记丨断点回归"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&is_video=false&description=笔记丨断点回归"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=笔记丨断点回归&body=Check out this article: https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&name=笔记丨断点回归&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&t=笔记丨断点回归"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92"><span class="toc-number">1.</span> <span class="toc-text">第十二章 断点回归</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        笔记丨断点回归
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ArcTic</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-03-17T08:16:57.000Z" class="dt-published" itemprop="datePublished">2025-03-17</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Booknotes/">Booknotes</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E3%80%8A%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD%E5%AE%9E%E7%94%A8%E8%AE%A1%E9%87%8F%E6%96%B9%E6%B3%95%E3%80%8B/" rel="tag">《因果推断实用计量方法》</a>, <a class="p-category" href="/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" rel="tag">因果推断</a>, <a class="p-category" href="/tags/%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92/" rel="tag">断点回归</a>, <a class="p-category" href="/tags/%E8%AE%A1%E9%87%8F/" rel="tag">计量</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>@ 邱嘉平，《因果推断实用计量方法》，第12章，《断点回归》，上海财经大学出版社有限公司，2020年。</p>
+<h1 id="第十二章-断点回归"><a href="#第十二章-断点回归" class="headerlink" title="第十二章 断点回归"></a>第十二章 断点回归</h1><ul>
+<li>断点回归（Regression Discontinuity Design, RDD）<ul>
+<li>适用于某些特定事件：个体是否受到事件的影响，取决于其某个可观测特征是否大于给定的临界值。<ul>
+<li>如果事件发生的概率发生了从0到1的变化，则称为清晰断点回归（Sharp RDD）。</li>
+<li>如果概率发生了非0到1的变化，则称为模糊断点回归（Fuzzy RDD）。</li>
+</ul>
+</li>
+<li>理解RDD的两个要点<ul>
+<li>连续性：潜在结果函数的连续性保证了通过在断点两边附近的观测值去估计断点处的处置效应是合理的。</li>
+<li>局部随机性：在断点两边附近个体是否接受处置是随机的。</li>
+</ul>
+</li>
+<li>数据要求：<ul>
+<li><ol>
+<li>包含三个基本变量：</li>
+</ol>
+<ul>
+<li>（1）配置变量：个体的一个连续特征变量，值是否大于断点将决定个体是否接受处置。</li>
+<li>（2）断点：用于决定个体是否接受处置的阈值。</li>
+<li>（3）观测结果：个体接受处置或未接受处置的观测结果。</li>
+</ul>
+</li>
+<li><ol start="2">
+<li>配置变量的值在断点附近无法被准确操纵。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>断点的选择不受配置变量的影响。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>除了处置状态在断点处发生跳跃式变化外，其他未处置的个体特征变量在断点处没有显著差异。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>常用的Stata RDD命令![[截屏2025-03-17 16.38.43.png]]</li>
+<li>RDD的估计步骤<ul>
+<li>（一）讨论配置变量和断点的产生过程，确定配置变量和断点选择是独立的。</li>
+<li>（二）观察结果变量在断点处是否有明显的跳跃。<ul>
+<li><ol>
+<li>用散点图显示结果变量和配置变量的关系（twoway scatter)。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>用拟合图显示结果变量和配置变量的关系（rdplot）。</li>
+</ol>
+<ul>
+<li>（1）多项式回归拟合：选择多项式次数。</li>
+<li>（2）区间均值拟合：<ul>
+<li>a. 选择区间的分割方式：按配置变量值平均分割；按观测数量平均分割。</li>
+<li>b. 选择区间的数量：手动设置；选择IMSE最优区间^[最小化区间平均值估计量的“积分均方误差”]数量（rdbwselect）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>（三）检验数据是否符合使用RDD的前提条件。<ul>
+<li><ol>
+<li>检验配置变量密度函数在断点处的连续性（rddensity, DCdensity）。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>检验非结果特征变量在断点处的连续性（rdplot, rdrobust）。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>（四）估计处置变量在断点处的跳跃程度和显著性。<ul>
+<li>断点处处置效应的点估计。<ul>
+<li><ol>
+<li>全局多项式回归（regress）：多项式次数选择。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>局部多项式回归（rdrobust）：多项式次数选择；带宽选择；权重选择。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>（五）稳健性检验<ul>
+<li><ol>
+<li>在多项式估计中加入其他特征变量Z作为自变量，降低干扰项的误差，提高估计精度。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>安慰剂检验，即检验一个不应该受处置事件影响的结果变量在断点处是否也存在断点。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实例：Campello, M., Gao, J., Qiu, J., &amp; Zhang, Y. (2018). Bankruptcy and the cost of organized labor: Evidence from union elections. <em>The Review of Financial Studies</em>, <em>31</em>(3), 980-1013.</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/photos/">Photos</a></li>
+        
+          <li><a href="/categories/Booknotes/">Booknotes</a></li>
+        
+          <li><a href="/categories/BookReview/">BookReview</a></li>
+        
+          <li><a href="/categories/Essaynotes/">Essaynotes</a></li>
+        
+          <li><a href="/categories/JustWriting/">JustWriting</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92"><span class="toc-number">1.</span> <span class="toc-text">第十二章 断点回归</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&text=笔记丨断点回归"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&is_video=false&description=笔记丨断点回归"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=笔记丨断点回归&body=Check out this article: https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&title=笔记丨断点回归"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&name=笔记丨断点回归&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://arcticblog.cn/2025/03/Booknotes-%E7%AC%94%E8%AE%B0%E4%B8%A8%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92.html&t=笔记丨断点回归"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    ArcTic
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/photos/">Photos</a></li><!--
+     --><!--
+       --><li><a href="/categories/Booknotes/">Booknotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/BookReview/">BookReview</a></li><!--
+     --><!--
+       --><li><a href="/categories/Essaynotes/">Essaynotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/JustWriting/">JustWriting</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
