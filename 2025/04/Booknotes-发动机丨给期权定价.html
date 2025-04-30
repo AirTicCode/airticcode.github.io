@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <!-- so meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta name="description" content="@ Donald MacKenzie, 2006, An Engine, Not a Camera: How Financial Models Shape Markets, “Pricing Options”, MIT Press.  20世纪70年代之前，期权并未因历史悠久而获得认可，而是与投机相联系，备受争议，但仍不乏关注。 伦敦证券经纪人查尔斯・卡斯泰利（1877） 使用简单算术，简要讨论期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="发动机丨给期权定价">
+<meta property="og:url" content="https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html">
+<meta property="og:site_name" content="阿克提克">
+<meta property="og:description" content="@ Donald MacKenzie, 2006, An Engine, Not a Camera: How Financial Models Shape Markets, “Pricing Options”, MIT Press.  20世纪70年代之前，期权并未因历史悠久而获得认可，而是与投机相联系，备受争议，但仍不乏关注。 伦敦证券经纪人查尔斯・卡斯泰利（1877） 使用简单算术，简要讨论期">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-25T00:43:04.000Z">
+<meta property="article:modified_time" content="2025-04-25T02:39:13.833Z">
+<meta property="article:author" content="ArcTic">
+<meta property="article:tag" content="经济社会学">
+<meta property="article:tag" content="读书会">
+<meta property="article:tag" content="金融社会学">
+<meta name="twitter:card" content="summary">
+  
+  
+    
+      
+        <link rel="shortcut icon" href="/images/favicon.ico">
+      
+    
+    
+      
+        <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+      
+    
+    
+      
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+      
+    
+  
+  <!-- title -->
+  <title>发动机丨给期权定价</title>
+  <!-- async scripts -->
+  <!-- Google Analytics -->
+
+
+  <!-- Umami Analytics -->
+
+
+  <!-- styles -->
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!-- persian styles -->
+  
+  <!-- rss -->
+  
+  
+<!-- mathjax -->
+
+
+<!-- 新增开始：打字机动效相关 -->
+<style>
+  .typed-cursor {
+    font-size: 48px !important;
+    animation: blink 1s infinite;
+    color: #ffffff;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.16/typed.min.js" defer></script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    new Typed('.typewriter-content', {
+      strings: ['Eternity’s too vast, let’s live for now.'],
+      typeSpeed: 60,
+      startDelay: 300,
+      backSpeed: 0,
+      loop: false,
+      showCursor: true,
+      cursorChar: '▌',
+      onComplete: (self) => $('.typed-cursor').fadeOut(500)
+    });
+  });
+</script>
+<noscript>
+  <style>
+    .typewriter-content { 
+      display: inline-block !important;
+      opacity: 1 !important; 
+    }
+  </style>
+</noscript>
+<!-- 新增结束 -->
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/photos/">Photos</a></li><!--
+     --><!--
+       --><li><a href="/categories/Booknotes/">Booknotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/BookReview/">BookReview</a></li><!--
+     --><!--
+       --><li><a href="/categories/Essaynotes/">Essaynotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/JustWriting/">JustWriting</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2025/04/Booknotes-%E6%82%96%E8%AE%BA%E4%B8%A8%E5%A4%A7%E5%AD%A6%E2%80%94%E2%80%94%E4%BB%A5%E7%9F%A5%E8%AF%86%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E6%9C%BA%E6%9E%84.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/04/Booknotes-%E5%A4%A7%E5%AD%A6%E6%95%99%E8%82%B2%E4%B8%8E%E7%9F%A5%E8%AF%86%E7%9A%84%E6%9C%AA%E6%9D%A5%E4%B8%A8%E5%A4%A7%E5%AD%A6%E6%95%99%E8%82%B2%E7%9A%84%E7%9B%AE%E7%9A%84.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&text=发动机丨给期权定价"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&is_video=false&description=发动机丨给期权定价"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=发动机丨给期权定价&body=Check out this article: https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&name=发动机丨给期权定价&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&t=发动机丨给期权定价"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        发动机丨给期权定价
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">ArcTic</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-25T00:43:04.000Z" class="dt-published" itemprop="datePublished">2025-04-25</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Booknotes/">Booknotes</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E5%AD%A6/" rel="tag">经济社会学</a>, <a class="p-category" href="/tags/%E8%AF%BB%E4%B9%A6%E4%BC%9A/" rel="tag">读书会</a>, <a class="p-category" href="/tags/%E9%87%91%E8%9E%8D%E7%A4%BE%E4%BC%9A%E5%AD%A6/" rel="tag">金融社会学</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>@ Donald MacKenzie, 2006, An Engine, Not a Camera: How Financial Models Shape Markets, “Pricing Options”, MIT Press.</p>
+<ul>
+<li>20世纪70年代之前，期权并未因历史悠久而获得认可，而是与投机相联系，备受争议，但仍不乏关注。<ul>
+<li>伦敦证券经纪人查尔斯・卡斯泰利（1877）<ul>
+<li>使用简单算术，简要讨论期权的定价问题。</li>
+<li>指出，在高波动时期，期权价格往往上涨。</li>
+</ul>
+</li>
+<li>路易斯・巴舍利耶（1900）<ul>
+<li>将随机游走模型应用于期权定价，模型的预测价格和实际价格展现出相当⾼的拟合度。</li>
+</ul>
+</li>
+<li>里雅斯特大学精算教授文岑茨·布龙津（1908）的相关研究。</li>
+</ul>
+</li>
+<li>20世纪五六十年代，对期权定价的长期理论关注真正开始，然而，并非期权和认股权证的重要性召唤了新的理论，而是随机游走模型需要发展期权和认股权证的定价理论，作为一种具体阐述其原理的方式。<ul>
+<li>凯斯・斯普伦克尔（1961）<ul>
+<li>使用股票价格变动的对数正态模型来计算认购证收益的期望值，将投资者对风险的态度在理论上视为投资者愿意为杠杆⽀付的“价格”。</li>
+<li>由于数据不可获得，不得不接受价格没有预期升值的武断假设，在理论上推导出的认购权证价值⽅程依赖于难以从经验层⾯估计的参数值。</li>
+</ul>
+</li>
+<li>MIT经济学家保罗・萨缪尔森（1965）<ul>
+<li>模型与斯普伦克尔类似，也依赖于似乎没有直接经验参照的参数，且没有提供直接估计这些参数的⽅法。</li>
+</ul>
+</li>
+<li>芝加哥⼤学的博⼠⽣A・詹姆斯・博内斯（1964）<ul>
+<li>简化萨缪尔森的假定，但计算的样本预期收益率过高。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>期权定价的另一种思路——放弃先验模型，从经验出发。<ul>
+<li>经济学家希恩·卡索夫和数学家爱德华・O・索普<ul>
+<li>卡索夫发现认股权证和相应股票往往一起波动，读博期间以此交易赚钱。</li>
+<li>索普与信息论专家克劳德・⾹农、计算机科学家威廉・E・沃尔登等人合作，开发赌博技术盈利，由于赌博的人身安全风险和长途旅行需要，转向金融市场。</li>
+<li>卡索夫毕业后获得加州大学教席，遇到索普。</li>
+<li>1967年，卡索夫和索普共同出版《战胜市场》，提出能够描绘持股权证价格与股票价格之间关系的经验方程。</li>
+<li>索普进而又以与斯普伦克尔相同的方法探索期权定价的经济学方程，在形式上等价于费希尔・布莱克和迈伦・舒尔斯的⽅程，尽管仍只能近似估计股票价格的预期增长，但自认合理并开始使用该方程赚钱。</li>
+</ul>
+</li>
+<li>⼈⼯智能学家费希尔・布莱克和金融学家迈伦・舒尔斯<ul>
+<li>布莱克在里特咨询公司与杰克・特雷诺相识，后者受到莫迪⾥安尼和⽶勒的启发，独立于威廉·夏普提出了自己的资本资产定价模型。</li>
+<li>布莱克在与特雷诺的合作研究基础上，⽤股票价格替代早期研究中基于时间的“信息相关变量”，并将资本资产定价模型同时应⽤于股票和持股权证，导出了⼀个微分⽅程，但因难以求解而搁置。</li>
+<li>舒尔斯在博士论文基础上，研究持股权证的定价问题，但遇到无法构造Beta值为0的投资组合的瓶颈。</li>
+<li>1969年，布莱克和舒尔斯合作，推导出布莱克—舒尔斯期权定价⽅程，并利用对斯普伦克方程的修正，避开求解问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>经济学家罗伯特・C・默顿<ul>
+<li>MIT的保罗・萨缪尔森反对资本资产定价模型的原始形式，对学生默顿产生深远影响。</li>
+<li>默顿试图以更复杂准确的“连续时间”模型取代简单的“单⼀时期”模型，自学随机微积分，改进资本资产定价模型。</li>
+<li>1970年，默顿与舒尔斯接触，意识到“布莱克—舒尔斯⽅程”的突破性与不足，将连续时间模型和随机微积分应⽤到布莱克—舒尔斯⽅程中，但布莱克和舒尔斯对其方法表示怀疑。</li>
+<li>相较差异，布莱克、舒尔斯和默顿的共同论点更为突出，威廉・夏普提出该期权定价方法的简化版本，保留“期权价格取决于套利⽽⾮特定股票的预期收益”理论核心，以“二项式”模型消除数学上的复杂性。</li>
+</ul>
+</li>
+<li>布莱克、舒尔斯和默顿之后的期权理论<ul>
+<li>尽管布莱克、舒尔斯和默顿是否从根本上重构了⼀个重⼤问题的理论并没有立刻变得清晰，也并非为所有人服膺，但成长起来的新⼀代⾦融经济学家迅速注意到这是一个典范性的问题解决方案，金融经济学迎来范式革命。</li>
+<li>20世纪70年代初，经济学家史蒂芬・A・罗斯接触布莱克—舒尔斯模型，发展出⼀种“套利定价理论”，又在和约翰・C・考克斯的合作中将将布莱克-舒尔斯的结果纳⼊⼀项⼀般性的精巧理论，并在和⾦融学家马克・鲁宾斯坦中发展出“考克斯-罗斯-鲁宾斯坦模型”，为布莱克—舒尔斯模型提供了⼀个实⽤的、有吸引⼒的替代⽅案。</li>
+<li>1979年，应⽤数学家J・迈克尔・哈⾥森和经济学家戴维・M・克雷普斯质疑期权定价理论1970年代中期之前的所有研究，引入现代的“斯特拉斯堡”鞅理论，“正统”现代⾦融理论的基本架构⼤致完成。</li>
+<li>布莱克-舒尔斯-默顿模型作为理论研究卓越且富有成效，但其预测与现实之间只是大体一致，还存在若干不符合市场条件的假设，但20世纪70年代初的世界开始发生变化，布莱克-舒尔斯-默顿期权理论已经开始影响期权交易所的运作及其价格模式。</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/photos/">Photos</a></li>
+        
+          <li><a href="/categories/Booknotes/">Booknotes</a></li>
+        
+          <li><a href="/categories/BookReview/">BookReview</a></li>
+        
+          <li><a href="/categories/Essaynotes/">Essaynotes</a></li>
+        
+          <li><a href="/categories/JustWriting/">JustWriting</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&text=发动机丨给期权定价"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&is_video=false&description=发动机丨给期权定价"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=发动机丨给期权定价&body=Check out this article: https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&title=发动机丨给期权定价"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&name=发动机丨给期权定价&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://arcticblog.cn/2025/04/Booknotes-%E5%8F%91%E5%8A%A8%E6%9C%BA%E4%B8%A8%E7%BB%99%E6%9C%9F%E6%9D%83%E5%AE%9A%E4%BB%B7.html&t=发动机丨给期权定价"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    ArcTic
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/photos/">Photos</a></li><!--
+     --><!--
+       --><li><a href="/categories/Booknotes/">Booknotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/BookReview/">BookReview</a></li><!--
+     --><!--
+       --><li><a href="/categories/Essaynotes/">Essaynotes</a></li><!--
+     --><!--
+       --><li><a href="/categories/JustWriting/">JustWriting</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
